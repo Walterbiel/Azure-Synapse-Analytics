@@ -1,0 +1,61 @@
+{
+	"name": "Notebook 2",
+	"properties": {
+		"nbformat": 4,
+		"nbformat_minor": 2,
+		"bigDataPool": {
+			"referenceName": "testewgg",
+			"type": "BigDataPoolReference"
+		},
+		"sessionProperties": {
+			"driverMemory": "28g",
+			"driverCores": 4,
+			"executorMemory": "28g",
+			"executorCores": 4,
+			"numExecutors": 2,
+			"runAsWorkspaceSystemIdentity": false,
+			"conf": {
+				"spark.dynamicAllocation.enabled": "false",
+				"spark.dynamicAllocation.minExecutors": "2",
+				"spark.dynamicAllocation.maxExecutors": "2",
+				"spark.autotune.trackingId": "b73aaf1c-1039-4ab3-97e7-9792bea0ec6a"
+			}
+		},
+		"metadata": {
+			"saveOutput": true,
+			"synapse_widget": {
+				"version": "0.1"
+			},
+			"enableDebugMode": false,
+			"language_info": {
+				"name": "python"
+			},
+			"a365ComputeOptions": {
+				"id": "/subscriptions/e2ca4cd8-dc1c-411c-95af-bee13f0a2368/resourceGroups/wgg-resource-group/providers/Microsoft.Synapse/workspaces/wgg-synapse/bigDataPools/testewgg",
+				"name": "testewgg",
+				"type": "Spark",
+				"endpoint": "https://wgg-synapse.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/testewgg",
+				"auth": {
+					"type": "AAD",
+					"authResource": "https://dev.azuresynapse.net",
+					"authHeader": null
+				},
+				"sparkVersion": "3.4",
+				"nodeCount": 10,
+				"cores": 4,
+				"memory": 28,
+				"extraHeader": null
+			},
+			"sessionKeepAliveTimeout": 30
+		},
+		"cells": [
+			{
+				"cell_type": "code",
+				"source": [
+					"mssparkutils.notebook.run(\"/Notebook_teste\", 60, {\"caminho\": \"prod/data/prod\"})"
+				],
+				"execution_count": 1
+			}
+		]
+	}
+}

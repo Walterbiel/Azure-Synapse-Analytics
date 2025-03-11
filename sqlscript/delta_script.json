@@ -1,0 +1,17 @@
+{
+	"name": "delta_script",
+	"properties": {
+		"content": {
+			"query": "\nSELECT\n    TOP 100 *\nFROM\n    OPENROWSET(\n        BULK 'https://wggsynapselakegen2.dfs.core.windows.net/datalake-synapse/nyc_green_taxi_data/raw/trip_data_green_delta/year=2021/',\n        FORMAT = 'DELTA'\n    ) AS [result]\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "master",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

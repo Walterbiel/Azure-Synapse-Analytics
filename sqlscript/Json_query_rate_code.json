@@ -1,0 +1,17 @@
+{
+	"name": "Json_query_rate_code",
+	"properties": {
+		"content": {
+			"query": "-- This is auto-generated code\nSELECT TOP 100\n    *\n/* --> place the keys that you see in JSON documents in the WITH clause:\n       , JSON_VALUE (jsonContent, '$.key1') AS header1\n       , JSON_VALUE (jsonContent, '$.key2') AS header2\n*/\nFROM\n    OPENROWSET(\n        BULK 'https://wggsynapselakegen2.dfs.core.windows.net/datalake-synapse/nyc_green_taxi_data/raw/rate_code.json',\n        FORMAT = 'CSV',\n        FIELDQUOTE = '0x0b',\n        FIELDTERMINATOR ='0x0b',\n        ROWTERMINATOR = '0x0b'\n    )\n    WITH (\n        jsondoc varchar(MAX)\n    ) AS payment_type\n    \n    CROSS APPLY OPENJSON(jsondoc)\n    WITH(\n        rate_code_id INT,\n        rate_code VARCHAR(20)\n    );\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "master",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

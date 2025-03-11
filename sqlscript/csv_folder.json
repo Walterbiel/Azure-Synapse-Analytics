@@ -1,0 +1,17 @@
+{
+	"name": "csv_folder",
+	"properties": {
+		"content": {
+			"query": "\nSELECT\n    *\nFROM\n    OPENROWSET(\n        BULK 'https://wggsynapselakegen2.dfs.core.windows.net/datalake-synapse/nyc_green_taxi_data/raw/trip_data_green_csv/year=2021/**',\n        FORMAT = 'CSV',\n        HEADER_ROW = TRUE,\n        PARSER_VERSION = '2.0'\n    ) AS [result]\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "master",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

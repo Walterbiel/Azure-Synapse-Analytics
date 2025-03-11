@@ -1,0 +1,17 @@
+{
+	"name": "parquet_folder_2021",
+	"properties": {
+		"content": {
+			"query": "\nSELECT\n    total_amount * 1000 as teste\nFROM\n    OPENROWSET(\n        BULK 'https://wggsynapselakegen2.dfs.core.windows.net/datalake-synapse/nyc_green_taxi_data/raw/trip_data_green_parquet/year=2021/**',\n        FORMAT = 'PARQUET'\n    ) AS [result]\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "master",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

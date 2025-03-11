@@ -1,0 +1,17 @@
+{
+	"name": "taxi_zone_DATALAKE",
+	"properties": {
+		"content": {
+			"query": "\n\n-- create external data source\nCREATE EXTERNAL DATA SOURCE taxi_data_bronze_raw\nWITH(\n    LOCATION = 'https://wggsynapselakegen2.dfs.core.windows.net/'\n    )\n\n--VIEW \n\nIF OBJECT_ID('TAXI_ZONE', 'V') IS NOT NULL  \n    DROP VIEW TAXI_ZONE;  \nGO  \n\nCREATE VIEW TAXI_ZONE AS  \nSELECT  \n    *  \nFROM  \n    OPENROWSET(  \n        BULK 'datalake-synapse/nyc_green_taxi_data/raw/taxi_zone.csv', \n        DATA_SOURCE = 'taxi_data_bronze_raw',\n        FORMAT = 'CSV',  \n        PARSER_VERSION = '2.0',  \n        FIRSTROW = 2  \n    ) WITH (  \n        LocationID INT,  \n        Borough NVARCHAR(100),  \n        Zone NVARCHAR(100),  \n        service_zone NVARCHAR(50)  \n    ) AS [result];  \n\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "demo",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
