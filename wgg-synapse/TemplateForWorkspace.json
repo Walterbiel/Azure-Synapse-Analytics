@@ -235,15 +235,16 @@
 						"spark.dynamicAllocation.enabled": "false",
 						"spark.dynamicAllocation.minExecutors": "2",
 						"spark.dynamicAllocation.maxExecutors": "2",
-						"spark.autotune.trackingId": "b73aaf1c-1039-4ab3-97e7-9792bea0ec6a"
+						"spark.autotune.trackingId": "573ac0d0-c7ac-49e9-bc71-85b776337624"
 					}
 				},
 				"metadata": {
 					"saveOutput": true,
-					"synapse_widget": {
-						"version": "0.1"
-					},
 					"enableDebugMode": false,
+					"kernelspec": {
+						"name": "synapse_pyspark",
+						"display_name": "Synapse PySpark"
+					},
 					"language_info": {
 						"name": "python"
 					},
@@ -254,14 +255,12 @@
 						"endpoint": "https://wgg-synapse.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/testewgg",
 						"auth": {
 							"type": "AAD",
-							"authResource": "https://dev.azuresynapse.net",
-							"authHeader": null
+							"authResource": "https://dev.azuresynapse.net"
 						},
 						"sparkVersion": "3.4",
 						"nodeCount": 10,
 						"cores": 4,
-						"memory": 28,
-						"extraHeader": null
+						"memory": 28
 					},
 					"sessionKeepAliveTimeout": 30
 				},
@@ -272,7 +271,7 @@
 							"mssparkutils.notebook.run(\"/Notebook_teste\", 60, {\"caminho\": \"prod/data/prod\"})"
 						],
 						"outputs": [],
-						"execution_count": 1
+						"execution_count": 4
 					}
 				]
 			},
@@ -300,15 +299,16 @@
 						"spark.dynamicAllocation.enabled": "false",
 						"spark.dynamicAllocation.minExecutors": "2",
 						"spark.dynamicAllocation.maxExecutors": "2",
-						"spark.autotune.trackingId": "c2ca234b-d937-4636-ab3e-9e7d9b59ad60"
+						"spark.autotune.trackingId": "6d2a29a0-87b3-47a7-8b95-cd3c9b637ffe"
 					}
 				},
 				"metadata": {
 					"saveOutput": true,
-					"synapse_widget": {
-						"version": "0.1"
-					},
 					"enableDebugMode": false,
+					"kernelspec": {
+						"name": "synapse_pyspark",
+						"display_name": "python"
+					},
 					"language_info": {
 						"name": "python"
 					},
@@ -319,30 +319,31 @@
 						"endpoint": "https://wgg-synapse.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/testewgg",
 						"auth": {
 							"type": "AAD",
-							"authResource": "https://dev.azuresynapse.net",
-							"authHeader": null
+							"authResource": "https://dev.azuresynapse.net"
 						},
 						"sparkVersion": "3.4",
 						"nodeCount": 10,
 						"cores": 4,
 						"memory": 28,
-						"extraHeader": null
+						"automaticScaleJobs": false
 					},
 					"sessionKeepAliveTimeout": 30
 				},
 				"cells": [
 					{
 						"cell_type": "code",
+						"metadata": {},
 						"source": [
 							"#parametros\n",
 							"\n",
-							"caminho = \"teste\""
+							"caminho = "
 						],
 						"outputs": [],
 						"execution_count": 3
 					},
 					{
 						"cell_type": "code",
+						"metadata": {},
 						"source": [
 							"caminho"
 						],
